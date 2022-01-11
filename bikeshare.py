@@ -75,8 +75,8 @@ def load_data(city, month, day):
     # filter by month if applicable
     if month != 'all':
         # use the index of the months list to get the corresponding int
-        months = ['january', 'february', 'march', 'april', 'may', 'june']
-        month = months.index(month) + 1
+        month_names = ['january', 'february', 'march', 'april', 'may', 'june']
+        month = month_names.index(month) + 1
 
         # filter by month to create the new dataframe
         df = df[df['month'] == month]
@@ -97,6 +97,7 @@ def time_stats(df):
 
     # TO DO: display the most common month by converting month number to month name
     month_name = df['month'].mode()[0]
+    print("The most common month number in the US Bikeshare data is - ",month_name)
     month_name = calendar.month_name[month_name]
     print("The most common month in the US Bikeshare data is - ",month_name)
 
@@ -193,7 +194,7 @@ def main():
         trip_duration_stats(df)
         user_stats(df,city)
 
-        restart = input('\nWould you like to restart? Enter yes or no.\n')
+        restart = input('\nWould you like to restart and verify more data with new filter values? Enter yes or no.\n')
         if restart.lower() != 'yes':
             break
 
