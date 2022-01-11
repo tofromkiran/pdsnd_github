@@ -97,6 +97,7 @@ def time_stats(df):
 
     # TO DO: display the most common month
     month_name = df['month'].mode()[0]
+    print("The most common month number in the US Bikeshare data is - ",month_name)
     month_name = calendar.month_name[month_name]
     print("The most common month in the US Bikeshare data is - ",month_name)
 
